@@ -5,6 +5,7 @@
 import pylab 
 import netCDF4 as nc
 import numpy as np
+import read_atmo_chem as rac
 from scipy.interpolate import interp1d
 
 # Reference and surface pressures - in Pa
@@ -97,13 +98,8 @@ species=['H2','He','H2O','CH4','CO','CO2','NH3','Na','K','Li','Rb','Cs','TiO','V
     print ' in ms-2'
     exit()
 
-  #Read atmo chemistry file
-  data = nc.Dataset(fname)
-
-  #Get pressure, abundances and molecule names
-  pressure   = data.variables['pressure'][:]*10. # Convert to Pa 
-  abundances = data.variables['abundances'][:,:]
-  names      = data.variables['molname'][:]	
+  # Read chemistry file 
+  pressure, abundances, names = rac.read_atmo_chem(fname)
 
   #Get indices of requested species
   species_name = []
