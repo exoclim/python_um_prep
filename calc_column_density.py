@@ -63,6 +63,8 @@ def get_molmass(mol):
     molmass = 63.8664
   elif mol=='VO':
     molmass = 66.94090
+  elif mol=='HCN':
+    molmass = 27.0253
   else:
     print 'Error: molmass not included: ',mol
     sys.exit()
@@ -87,7 +89,7 @@ def imol(mol,mols):
 # Main function
 def get_column_density(fname=None,
 gravity=None,
-species=['H2','He','H2O','CH4','CO','CO2','NH3','Na','K','Li','Rb','Cs','TiO','VO']):
+species=['H2','He','H2O','CH4','CO','CO2','NH3','Na','K','Li','Rb','Cs','TiO','VO','HCN']):
 
   # Check required inputs are defined
   if fname==None:
